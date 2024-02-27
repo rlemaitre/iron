@@ -141,7 +141,7 @@ private def assertConditionImpl[A: Type](input: Expr[A], cond: Expr[Boolean], me
  */
 inline def isConstant[A](inline value: A): Boolean = ${ isConstantImpl('{ value }) }
 
-private def isConstantImpl[A: Type](expr: Expr[A])(using Quotes): Expr[Boolean] =
+private[macros] def isConstantImpl[A: Type](expr: Expr[A])(using Quotes): Expr[Boolean] =
 
   import quotes.reflect.*
 
